@@ -1,5 +1,6 @@
 class RecipesController < ApplicationController
   def index
+    @recipes = Recipe.all
   end
 
   def show
@@ -11,7 +12,6 @@ class RecipesController < ApplicationController
   end
   
   def create
-    
     @recipe = Recipe.new(recipe_params)
     @recipe.user_id = current_user.id
     @recipe.save
